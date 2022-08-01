@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-circle {
+    border-radius: 50%;
+}
+
+.table-header {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 120%;
+}
+
+.table-content {
+    font-family: 'Courier New', Courier, monospace;
+}
