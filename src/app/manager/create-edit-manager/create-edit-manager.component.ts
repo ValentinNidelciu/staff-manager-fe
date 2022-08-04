@@ -94,10 +94,6 @@ export class CreateEditManagerComponent implements OnInit {
     this.subordinatedEmployeesIdsControl.removeAt(index);
   }
 
-
-
-
-
   get nameControl() {
     return this.createEditManagerForm.controls['nameControl'] as FormControl;
   }

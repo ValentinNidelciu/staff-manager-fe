@@ -32,8 +32,11 @@
                                     <option *ngFor="let employee of allEmployees" [value]="employee.id">{{employee.name}</option>
                                 </select>
                             </div>
+                            <button type="button" (click)="removeSubordinatedEmployee(i)" class="button border border-danger">Remove employee</button>
                         </ng-container>
-                        <button type="button" (click)="addSubordinatedEmployee()" class="button border border-info">Add Employee</button>
+                        <div class="mt-2"></div>
+                        <button type="button" (click)="addSubordinatedEmployee()" class="button border border-info">Add employee</button>
+                        
                     </ng-container>
                 </div>
     </form>
