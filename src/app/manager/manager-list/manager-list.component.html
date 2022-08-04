@@ -1,0 +1,33 @@
+<h2 class="text-center mt-5 mb-5">Manager List</h2>
+
+<button type="button" class="btn btn-outline-info btn-circle" (click)="openCreateManagerModal()">Add</button>
+
+<table class="table text-center">
+    <thead class="table-header border-bottom border-black">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Department Id</th>
+        <th scope="col">Subordinated Employee Ids</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-content">
+      <tr *ngFor="let manager of allManagers; let index = index">
+        <th scope="row">{{index + 1}}</th>
+        <td>{{manager.name}}</td>
+        <td>{{manager.email}}</td>
+        <td>{{manager.dateOfBirth}}</td>
+        <td>{{manager.departmentId}}</td>
+        <td>{{manager.subordinatedEmployeeIds}}</td>
+        <td>
+          <div>
+            <button type="button" class="btn btn-warning me-3" (click)="openEditManagerModal(manager)">Edit</button>
+            <button type="button" class="btn btn-danger me-3">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

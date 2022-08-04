@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add new manager</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss(false)"></button>
+  </div>
+  <div class="modal-body">
+      <form [formGroup]="createEditManagerForm" class="text-center">
+                <div>
+                    <label for="name" class="form-label">Enter your name: </label>
+                    <input id="name" type="text" placeholder="Name" formControlName="nameControl" class="form-control"/>
+                </div>
+
+                <div>
+                    <label for="email" class="form-label">Enter your email: </label>
+                    <input id="email" type="text" placeholder="Email" formControlName="emailControl" class="form-control"/>
+                </div>
+            
+                <div>
+                    <label for="dateOfBirth" class="form-label">Enter your date of birth: </label>
+                    <input id="dateofBirth" type="date" formControlName="dateofBirthControl" class="form-control" />
+                </div>
+                
+                <div>
+                    <label for="departmentId" class="form-label">Enter your department id: </label>
+                    <input id="departmentId" type="text" placeholder="Department Id" formControlName="departmenteIdControl" class="form-control" />
+                </div>
+                <div>
+                    <ng-container formArrayName="subordinatedEmployeesIdsControl">
+                        <ng-container *ngFor="let sEIdControl of subordinatedEmployeesIdsControl.controls; let i = index">
+                            <div [formGroupName]="i">
+                                <select formControlName="arraySEIdControl" class="form-control border border-info">
+                                    <option value="null"> Select an employee </option>
+                                    <option *ngFor="let employee of allEmployees" [value]="employee.id">{{employee.name}</option>
+                                </select>
+                            </div>
+                        </ng-container>
+                        <button type="button" (click)="addSubordinatedEmployee()" class="button border border-info">Add Employee</button>
+                    </ng-container>
+                </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-success" (click)="onManagerCreateEditSubmit()">Save</button>
+  </div>
