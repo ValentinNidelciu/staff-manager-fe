@@ -23,6 +23,19 @@
                     <label for="departmentId" class="form-label">Enter your department id: </label>
                     <input id="departmentId" type="text" placeholder="Department Id" formControlName="departmenteIdControl" class="form-control" />
                 </div>
+                <div>
+                    <ng-container formArrayName="subordinatedEmployeesIdsControl">
+                        <ng-container *ngFor="let sEIdControl of subordinatedEmployeesIdsControl.controls; let i = index">
+                            <div [formGroupName]="i">
+                                <select formControlName="arraySEIdControl" class="form-control border border-info">
+                                    <option value="null"> Select an employee </option>
+                                    <option *ngFor="let employee of allEmployees" [value]="employee.id">{{employee.name}</option>
+                                </select>
+                            </div>
+                        </ng-container>
+                        <button type="button" (click)="addSubordinatedEmployee()" class="button border border-info">Add Employee</button>
+                    </ng-container>
+                </div>
     </form>
   </div>
   <div class="modal-footer">

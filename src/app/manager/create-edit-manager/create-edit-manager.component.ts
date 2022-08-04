@@ -15,6 +15,8 @@ export class CreateEditManagerComponent implements OnInit {
   @Input()
   private existingManager: any;
 
+  allEmployees: any[] = [];
+
   constructor(private managerService: ManagerService, public modal: NgbActiveModal, 
     private formBuilder: FormBuilder) { }
 
@@ -81,7 +83,7 @@ export class CreateEditManagerComponent implements OnInit {
 
   addSubordinatedEmployee(){
     let subordinatedEmployeeGroup = this.formBuilder.group({
-      sEIdControl: this.formBuilder.control('')
+      arraySEIdControl: this.formBuilder.control('')
     })
 
     this.subordinatedEmployeesIdsControl.push(subordinatedEmployeeGroup);
